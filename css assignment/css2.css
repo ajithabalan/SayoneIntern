@@ -1,0 +1,62 @@
+.content1{
+    padding-top: 20px;
+}
+.button{
+    border-radius:12px;
+    background-color: rgb(233, 165, 77);
+    border: none;
+    text-decoration: none;
+}
+.button a{
+    color: white;
+    text-decoration: none;
+}
+.flexc{
+   
+    display: inline-flex;
+        
+    justify-content: center;
+    gap: 29px;
+}
+
+.row2{
+    display: flex;
+    justify-content: center;
+}
+.flexd{
+   
+         display: flex;
+        
+        justify-content: center;
+   gap: 55px;
+}
+
+#title{
+    background-color: rgb(14, 13, 13);
+    height: 65px;
+    color: beige;
+    display: flex;
+    align-items: center; 
+    padding-left: 10px;
+
+}
+
+.nav-item a{
+    color: white;
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.navlist{
+    display: flex;
+    gap:10px;
+    margin-left: 400px;
+}
+.row1{
+    display:flex;
+    justify-content: center;
+    gap: 10px;
+}

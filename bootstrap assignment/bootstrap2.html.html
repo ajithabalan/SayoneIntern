@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css assignment2</title>
+    <style>
+    .content1{
+        padding-top: 20px;
+    }
+    .button{
+        border-radius:12px;
+        background-color: rgb(233, 165, 77);
+        border: none;
+        text-decoration: none;
+    }
+    .button a{
+        color: white;
+        text-decoration: none;
+    }
+    .flexc{
+       
+        display: inline-flex;
+            
+             justify-content: center;
+        gap: 29px;
+    }
+    .flexd{
+       
+             display: inline-flex;
+            
+            justify-content: center;
+       gap: 55px;
+       background-color: rgb(32, 32, 32)
+   }
+   @media screen and (max-width: 700px) {
+  .flexc,.flexd {   
+    flex-direction: column;
+    
+  }
+}
+    </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container-fluid">
+
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+             <span  style="color: white; margin-left:350px;font-family: 'Lobster', cursive; font-size: 25px;">Bloom</span>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: white;"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
+        
+        <ul style="margin-left:450px;font-size: x-small;" class="navbar-nav  mb-3 mb-lg-0 ">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+          </li>
+        </ul>
+          </div>
+          </nav>
+
+
+          <div class="container-fluid" >
+
+              <div style="background-color: rgba(100, 100, 100, 0.1)" class="row">
+                   <div class="col-md-3 col-sm-0 content1">
+
+                   </div>
+                   <div class="col-md-3 col-sm-5 content1"><h6>Lorem ipsum dolor sit amet</h6><p style="font-size: x-small;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Consequuntur voluptatum obcaecati cupiditate qui neque quis, incidunt
+                     facere laborum magni autem tenetur at in nemo officia voluptatibus<br><br>
+                      vero dolore rerum dolores? facere laborum magni autem tenetur at in nemo officia voluptatibus<br>
+                      vero dolore rerum dolores?</p>
+                      <button class="button"> <a href="#" >Learn More</a></button>
+                    </div>
+                     <div class="col-md-3 col-sm-0 mt-sm-5  content1" style="padding-bottom: 20px;">
+                  <img class="" src="C:\Users\HOME\Desktop\assignments sayone\css assignment\4_css_assignment2.jpg"
+                   alt="hello" height="150px">
+                     </div>
+
+              </div>
+
+
+              <div style="margin-top: 50px;margin-left: 320px;" class="row mt-sm-5">
+                <div class="col-sm-12">
+             <span class=" ml-sm-2  mt-lg-0 mt-sm-5" ><b> This is heading </b></span><br>
+            </div>
+              </div>
+
+
+
+
+            <div  style="margin-top: 10px;" class="row">
+                <div class="col-md-3 col-sm-12"></div>
+                <div class="flexc ">
+                    <div class="card " style="width: 12rem;">
+                        <img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\4_css_assignment21.jpg" height="150px"  class="card-img-top" alt="...">
+                        <div style="font-size: x-small;" class="card-body">
+                          <span style="font-size: 10px;" class="card-title"><b>Consequuntur voluptatum</b></span>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                         <button class="button"> <a href="#" >Learn More</a></button>
+                        </div>
+                      </div>
+                
+                
+                
+                    <div class="card " style="width: 12rem;">
+                        <img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\4_css_assignment22.jpg" height="150px"  class="card-img-top" alt="...">
+                        <div style="font-size: x-small;" class="card-body">
+                          <span style="font-size: 10px;" class="card-title"><b>Consequuntur voluptatum</b></span>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                         <button class="button"> <a href="#" >Learn More</a></button>
+                        </div>
+                      </div>
+                    
+                
+                
+                     <div class="card " style="width: 12rem;">
+                        <img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\4_css_assignment24.jpg" height="150px"  class="card-img-top" alt="...">
+                        <div style="font-size: x-small;" class="card-body">
+                          <span style="font-size: 10px;" class="card-title"><b>Consequuntur voluptatum</b></span>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                         <button class="button"> <a href="#" >Learn More</a></button>
+                        </div>
+                     </div>
+                </div>
+                <div class="col-3"></div>            
+          </div>
+          <div style="background-color: rgb(32, 32, 32);height: 200px; margin-top: 30px; color: white;font-size: x-small;" class="row">
+
+            <div style="margin-top: 35px;" class="flexd">
+                <div><b style="font-size: small"; >latest post</b><br><br>Lorem ipsum dolor sit amet consectetur elitelit<br> adipisicing elit.<br><br>
+                     Porro rerum sapiente magnam iure, tempore mole <br><br>nostrum consectetur incidunt quam, 
+                    blanditiis gh <br> quis odit atque dicta tenetutemporibus inventore 
+                </div>
+                <div><b style="font-size: small;">About</b><br><br>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit.
+                     Ex cumque excepturi aut! Rem inventore<br> eligendi a exercitationem 
+                     aliquam neque assumenda eum <br>dolorem nisi.<br><br> Libero perferendis earum 
+                     tempora iusto ab repellat?</div>
+                <div><b>Stay Connected</b><br><br>
+
+                    <ul style=" list-style-type: none;">
+
+                        <li><img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\download (4).png" height="15px" width="15px">Facebook
+                        </li><br>
+
+                        <li> <img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\download (5).png" height="15px" width="15px">
+                             Twitter</li><br>
+                        
+                             <li><img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\download (2).png" height="15px" width="15px">RSS</li><br>
+
+                        <li><img src="C:\Users\HOME\Desktop\assignments sayone\css assignment\download (6).png" height="15px" width="15px">Google</li>
+                    </ul>
+                    
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+      
+    
+</body>
+</html>

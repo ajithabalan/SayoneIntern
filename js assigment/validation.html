@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    #main{
+        width: 50%;
+        margin-left: 80px;
+    }
+         .text {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+        }
+        button{
+            background-color:#4CAF50;
+            border-radius:12px;
+            padding: 15px 32px;
+            color: white;
+        }
+        span{
+            color: red;
+        }
+        .error{
+            display: flex;
+            gap: 10px;
+        }
+        </style>
+</head>
+<body>
+    <h3 style="margin-left: 80px;">Form Validation</h3>
+
+<div id="main">
+  <div name="myform" onsubmit="" >
+
+    <label for="name"> Name</label>
+    <div class="error"><input type="text" class="text" id="name" name="name"  placeholder="Your name">
+    <span id="errors"></span></div><br>
+
+    <label for="email">Email</label>
+    <div class="error"><input type="text" class="text" id="email" name="email" placeholder="email">
+    <span  id="errors4"></span></div><br>
+
+
+    <label for="age">Age</label>
+
+    <div class="error"><input  type="text"  id="age" name="age" size="20" placeholder="age">
+    <span  id="errors2"></span></div><br>
+
+   
+
+    <label for="number">Phone Number</label>
+     
+<div class="error"><input type="text" name="country code" id="countrycode"  size="2"/>   
+<input type="text" name="phone" id="number" size="15"/><br><br>
+<span class="error" id="errors3"></span></div><br><br>
+
+   
+  
+    <button id="submit" type="submit" onclick="validation(event)">submit</button>
+  </form><br>
+  <span class="error" id="errors6"></span></div><br><br>
+
+   
+
+</div>
+<script src="C:\Users\HOME\Desktop\assignments sayone\js assigment\validation.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

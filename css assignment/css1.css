@@ -1,0 +1,103 @@
+
+        *{
+            font-family: Arial;
+        }
+        .Heading{
+          font-size: medium;
+        }
+        #title{
+            background-color: rgb(14, 13, 13);
+            height: 85px;
+            color: beige;
+            display: flex;
+            align-items: center; 
+            padding-left: 10px;
+
+        }
+        span{
+            font-size:50px;
+            color: rgb(210, 123, 30);
+        }
+        #list1 {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: rgb(85, 84, 84);
+        }
+        
+       .list2 {
+          float: left;
+        }
+        
+        .list2 a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          border-right:1px solid black;
+        }
+        
+        li a:hover {
+          background-color: #111;
+        }
+        .grid-container {
+  display: grid;
+  grid-template-columns:  1080px auto ;  
+  background-color:grey;
+  
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);  
+  padding: 20px 0;
+  font-size: 30px;
+  height:750px
+}
+#a{ background-color:white;
+}
+.list3 a{
+    
+    
+    font-size: small;
+    color: rgb(210, 123, 30);    
+    border-right: none;
+    
+        }
+       
+        #lista{
+            
+            list-style-type:  none;    
+            line-height: 50%;   
+            
+            }
+            .flexc{
+                display: flex;
+                justify-content: space-between;
+                padding: 60px;
+                height: 110px;
+                
+                
+               
+            }
+            .e{
+                background-color: rgba(85, 84, 84,.4);
+                height: 110px;
+                width: 110px;
+            }
+            hr{
+                width: 85%;
+            }
+            .final{
+                display: flex;
+            }
+            .line{
+                background-color: rgb(210, 123, 30); 
+                height: 1px;
+                width: 580px;
+                
+            }
+            p{
+              font-size: small
+            }
