@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        #result{
+            margin-top: 100px;
+            margin-left: 200px;
+            font: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <div class="row mt-5">
+        <div class="col-md-4"></div>
+       <div class="col-md-4"> <h2>GET ALPHA CODES</h2></div>
+    </div>
+
+    <div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <label class="form-label"></label>  Country Name </label>         
+    <input class="form-control" type="text" name="name" id="country" placeholder="Enter Country Name" width=""/> 
+    <span id="error" style="color: red;"></span>
+    <button type="button" class="btn btn-primary mt-3" onclick="getdetails(event)">Submit</button>
+</div>
+     </div>
+
+
+</div>
+<div>
+    <p id="result"></p>
+    <span id="r"></span>
+</div>
+<script>
+    var xhr = new XMLHttpRequest();
+    var url=""
+    
+    function getdetails() {
+       
+        
+        url="http://www.groupkt.com/country/get/all"
+       
+       
+        fetchPost(url)
+    }
+
+    function fetchPost(url){
+        
+        xhr.open("get", url,true)     
+
+         xhr.send()
+    }
+    xhr.onreadystatechange = () => {
+
+        if (xhr.readyState == 4)
+         {
+            if ((xhr.status >= 200) & (xhr.status < 300))
+             {   var cname = document.querySelector("#country").value
+                console.log("Success")
+                console.log(xhr.status)
+                var post=JSON.parse(xhr.responseText);
+            
+                console.log(post.RestResponse.result);
+                var jsObjects=post.RestResponse.result;
+                console.log(cname)
+                try{
+                var result = jsObjects.filter(obj => {
+                                        return obj.name ==cname;                        
+                                        
+
+
+                                                    }
+                                               )
+                
+               
+
+console.log(result.alpha2_code);
+var html="<tr><th>Country</th><th>Alpha 2 code</th><th>Alpha 3 code</th></tr>"
+var res=document.querySelector("#result");
+
+res.innerHTML="<h2><u>"+result[0].name+"</u></h2>"+"Alpha 2 code is :" +result[0].alpha2_code+" <br><br>"+"Alpha 3 code is :"+result[0].alpha3_code;
+document.querySelector("#country").value="";
+
+                                                }
+                                                catch(err){
+             console.log(result[0]);
+             var er=document.querySelector("#error");
+            er.innerHTML="Enter Valid Country Name"
+            setInterval(function(){ location.reload() }, 3000);
+
+                           }                 
+
+
+                
+            }
+            else {
+                console.log("rejected")
+                console.log(xhr.status)
+            }
+        }console.log("Task Complete")
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
