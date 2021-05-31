@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+ <style>
+     .flexd{
+    
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	/* min-height: 90vh; */ 
+    /* gap:5px; */
+    margin-top: 50px;
+    flex-direction: column;
+    margin-left: 300px;
+    max-width: 100%; 
+         
+     }
+     span{
+         color:red;
+     }
+ </style>
+
+</head>
+<body>
+ <!-- onload="getdetails()"> -->
+    <form >
+
+<div class="flexd form-group">
+
+   <div class="container "> <h2>Enter Details</h2></div>    
+        
+   <div> <label class="form-label"></label> Name </label>         
+    <input class="form-control" id="name" type="text" name="name"  placeholder="Enter Your Name"/> 
+    <span id="errors"></span><br>
+</div>
+
+<div ><label class="form-label"></label>email </label>     
+    <input  class="form-control" id="email" type="email" name="email"  placeholder="abc@gmail.com"/>
+    <span  id="errors4"></span><br>
+</div>
+
+<div  > <label class="form-label"></label>Country </label> 
+ <label class="form-label"></label>Country </label> 
+    <select class="form-select"  onchange="getregion()" id="select1" aria-label="Default select example">
+    </select><br>
+</div>
+
+<div> <label class="form-label"></label>Region </label> 
+      <select class="form-select" id="select2" aria-label="Default select example"> 
+     </select><br>
+    </div>
+
+    <div > <button onclick="submitDetails(event)"  type="submit" class="btn btn-primary" >submit</button>
+    <span class="error" id="errors6"></span><br><br>
+    </div>
+</div>
+</form>
+    
+<script>
+var d1=document.querySelector("#select1");
+var d2=document.querySelector("#select2");
+var x;
+      
+        function getdata(post){
+            console.log(post)
+            var d1data=post.map(obj=>
+               {
+
+                var el = document.createElement("option");
+      el.textContent = obj.name;
+      el.value = obj.code;
+      d1.appendChild(el);          
+    
+                }   )  
+        }
+        
+    
+    
+function getregion(){
+
+    x = d1.value;
+    var head = document.getElementsByTagName("head")[0];
+            
+    console.log("You selected: " + x);
+    url="http://battuta.medunes.net/api/region/"+x+"/all/?&callback=rc&&key=23bb54f6f438f604fcc7b774a9e015b7"
+    var scriptElement = document.createElement("script");
+    scriptElement.setAttribute("src", url);
+    scriptElement.setAttribute("id", "jsonp");
+    head.appendChild(scriptElement);
+
+    
+
+
+
+
+
+
+}
+
+function rc(post)
+{
+    //    //remove options
+
+                     var i;
+                    var select = document.getElementById("select2");
+                   var L = select.options.length - 1;
+                 for(i = L; i >= 0; i--) {
+                    select.remove(i);
+                                          }
+
+                    //removeoptions
+    console.log(post);
+    var d1data=post.map(obj=>
+               {
+
+var el = document.createElement("option");
+el.textContent = obj.region;
+el.value = obj.region;
+d2.appendChild(el);          
+          
+    
+                }                 )
+}
+
+
+
+
+
+
+
+
+
+        function submitDetails(event) 
+
+{ 
+    event.preventDefault();
+    var name=document.querySelector("#name").value;
+    var email=document.querySelector("#email").value;
+    var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+     var letters = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
+    var error=false;
+    
+
+    if((name == "")||(letters.test(name) === false))
+    {  
+        
+         document.querySelector('#errors').innerHTML="Please enter a valid name";
+         error=true;
+                
+    }
+
+
+    if((regex.test(email) === false)||(email==""))
+     {
+        document.querySelector('#errors4').innerHTML="Invalid Email";
+        error=true;       
+                
+       
+    } 
+    console.log("error is"+error)
+
+    if(error==true)
+    {
+        document.querySelector('#errors6').innerHTML="Invalid Form!";
+        setInterval(function(){ location.reload() }, 9000);
+    }
+    
+    else{
+        alert("Form submitted");     
+        alert( "name "+name+" email "+email+" country "+d1.value+" region "+d2.value);
+        location.reload();
+        
+        
+    }  
+
+}
+
+
+</script>
+
+
+    
+    <script src="http://battuta.medunes.net/api/country/all/?callback=getdata&key=23bb54f6f438f604fcc7b774a9e015b7"></script>
+</body>
+</html>
