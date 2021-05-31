@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+ <style>
+     .flexd{
+    
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	/* min-height: 90vh; */ 
+    /* gap:5px; */
+    margin-top: 50px;
+    flex-direction: column;
+    margin-left: 300px;
+    max-width: 100%; 
+         
+     }
+     span{
+         color:red;
+     }
+ </style>
+
+</head>
+<body onload="getdetails()">
+    <form >
+
+<div class="flexd form-group">
+
+   <div class="container "> <h2>Enter Details</h2></div>    
+        
+   <div> <label class="form-label"></label> Name </label>         
+    <input class="form-control" id="name" type="text" name="name"  placeholder="Enter Your Name"/> 
+    <span id="errors"></span><br>
+</div>
+
+<div ><label class="form-label"></label>email </label>     
+    <input  class="form-control" id="email" type="email" name="email"  placeholder="abc@gmail.com"/>
+    <span  id="errors4"></span><br>
+</div>
+
+<div  > <label class="form-label"></label>Country </label> 
+ <label class="form-label"></label>Country </label> 
+    <select class="form-select"  onchange="getregion()" id="select1" aria-label="Default select example">
+    </select><br>
+</div>
+
+<div> <label class="form-label"></label>Region </label> 
+      <select class="form-select" id="select2" aria-label="Default select example"> 
+     </select><br>
+    </div>
+
+    <div > <button onclick="submitDetails(event)"  type="submit" class="btn btn-primary" >submit</button>
+    <span class="error" id="errors6"></span><br><br>
+    </div>
+</div>
+</form>
+    <script>
+    
+    var xhr = new XMLHttpRequest();
+    var xhr1 = new XMLHttpRequest();
+    var url=""
+    var d1=document.querySelector("#select1");
+    var x;
+    var y=0;
+    var d2=document.querySelector("#select2")
+    function getdetails() {
+       
+        
+        url="http://battuta.medunes.net/api/country/all/?key=23bb54f6f438f604fcc7b774a9e015b7"
+        
+        fetchPost(url)
+                         }
+
+
+    function getregion()
+                   {
+                    //    d2.removeChild(d2.childNodes[1]);
+             x = d1.value;
+            
+            console.log("You selected: " + x)
+        
+      url1="http://battuta.medunes.net/api/region/"+x+"/all/?key=23bb54f6f438f604fcc7b774a9e015b7"
+
+            console.log("hello "+url1);       
+        
+           xhr1.open("get", url1,true)     
+   
+            xhr1.send()
+            console.log("second request send")
+
+//ajax2
+xhr1.onreadystatechange = () => {
+
+if (xhr1.readyState == 4)
+ {
+    if ((xhr1.status >= 200) & (xhr1.status < 300))
+     {   
+        console.log("Success")
+        console.log(xhr1.status)
+        var post2=JSON.parse(xhr1.responseText);
+        console.log(post2)
+       var d2data=post2.map(obj=>
+       {
+
+        var el = document.createElement("option");
+el.textContent = obj.region;
+el.value = obj.region;
+d2.appendChild(el);          
+
+})
+// populating second option tag    
+ 
+    
+ }
+ else {
+        console.log("rejected")
+        console.log(xhr1.status)
+    }
+}console.log("Task Complete")
+}
+//ajax2
+
+    
+     }
+                   
+
+
+
+
+
+                    
+
+    function fetchPost(url){
+        
+        xhr.open("get", url,true)     
+
+         xhr.send();
+                          }
+
+
+    xhr.onreadystatechange = () => {
+
+        if (xhr.readyState == 4)
+         {
+            if ((xhr.status >= 200) & (xhr.status < 300))
+             {   
+                console.log("Success")
+                console.log(xhr.status)
+                var post=JSON.parse(xhr.responseText);
+                console.log(post)
+               var d1data=post.map(obj=>
+               {
+
+                var el = document.createElement("option");
+      el.textContent = obj.name;
+      el.value = obj.code;
+      d1.appendChild(el);          
+    
+                }                 )
+        
+         
+            
+         }
+         else {
+                console.log("rejected")
+                console.log(xhr.status)
+            }
+        }console.log("Task Complete")
+        
+        }
+    
+
+
+
+function submitDetails(event) 
+
+{ 
+    event.preventDefault();
+    var name=document.querySelector("#name").value;
+    var email=document.querySelector("#email").value;
+    var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+     var letters = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
+    var error=false;
+    
+
+    if((name == "")||(letters.test(name) === false))
+    {  
+        
+         document.querySelector('#errors').innerHTML="Please enter a valid name";
+         error=true;
+                
+    }
+
+
+    if((regex.test(email) === false)||(email==""))
+     {
+        document.querySelector('#errors4').innerHTML="Invalid Email";
+        error=true;       
+                
+       
+    } 
+    console.log("error is"+error)
+
+    if(error==true)
+    {
+        document.querySelector('#errors6').innerHTML="Invalid Form!";
+        setInterval(function(){ location.reload() }, 9000);
+    }
+    
+    else{
+        alert("Form submitted");     
+        alert( "name "+name+" email "+email+" country "+x+" region "+d2.value);
+        location.reload();
+        
+        
+    }  
+
+}
+
+
+
+    </script>
+</body>
+</html>
