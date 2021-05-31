@@ -80,7 +80,16 @@
 
     function getregion()
                    {
-                    //    d2.removeChild(d2.childNodes[1]);
+                    //       //remove options
+
+                    var i;
+                    var select = document.getElementById("select2");
+                   var L = select.options.length - 1;
+                 for(i = L; i >= 0; i--) {
+                    select.remove(i);
+                                          }
+
+                    //removeoptions
              x = d1.value;
             
             console.log("You selected: " + x)
